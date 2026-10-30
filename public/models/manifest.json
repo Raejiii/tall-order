@@ -1,0 +1,53 @@
+{
+  "pieces": [
+    {
+      "id": "duck",
+      "name": "Rubber Duck",
+      "file": "duck.glb",
+      "prompt": "classic yellow rubber duck bath toy, glossy vinyl, orange beak, single object, full body, plain background",
+      "size": 0.75,
+      "metalness": 0,
+      "roughness": 0.28,
+      "density": 220,
+      "friction": 0.75,
+      "heaviness": 0.8,
+      "hulls": 3,
+      "massLabel": "Light",
+      "placeholder": "duck",
+      "color": "#f6c21c"
+    },
+    {
+      "id": "anvil",
+      "name": "Anvil",
+      "file": "anvil.glb",
+      "prompt": "heavy cast iron blacksmith anvil, dark worn metal with polished steel top face, single object, full body, plain background",
+      "size": 0.95,
+      "metalness": 0.25,
+      "roughness": 0.45,
+      "density": 1600,
+      "friction": 0.95,
+      "heaviness": 1.8,
+      "hulls": 4,
+      "massLabel": "Very heavy",
+      "placeholder": "box",
+      "color": "#4a4a4f",
+      "brighten": 1.7
+    },
+    {
+      "id": "cactus",
+      "name": "Potted Cactus",
+      "file": "cactus.glb",
+      "prompt": "cute saguaro cactus with two arms in a terracotta clay pot, green ribbed cactus with small spines, single object, full body, plain background",
+      "size": 1,
+      "metalness": 0,
+      "roughness": 0.7,
+      "density": 450,
+      "friction": 0.9,
+      "heaviness": 1.1,
+      "hulls": 5,
+      "massLabel": "Medium",
+      "placeholder": "cylinder",
+      "color": "#5aa84a"
+    }
+  ]
+}
