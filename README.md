@@ -1,5 +1,7 @@
 # Tall Order
 
+**Play it: https://raejiii.github.io/tall-order/**
+
 A physics stacking game where every piece is a 3D model I generated with [Vi3W](https://app.vi3w.in).
 Drop a rubber duck, an anvil and a potted cactus onto a wobbly pedestal and build the tallest tower
 you can before three pieces hit the floor.
