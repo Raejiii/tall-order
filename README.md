@@ -36,7 +36,7 @@ Stacking only works if the *shape* of each object matters, so I picked three obj
 
 ## Vi3W workflow
 
-Each model went through Vi3W's three-step pipeline. The in-game **Made with Vi3W** screen shows all three
+Each model went through Vi3W's three-step pipeline. The in-game **Model gallery** screen shows all three
 stages side by side for every model, along with its triangle count and collider breakdown.
 
 1. **Sketch**: a hand-drawn line sketch on the Vi3W canvas (`public/models/sketches/*-sketch.png`).
@@ -70,7 +70,7 @@ and choose *Show colliders*, to see them.
 ```
 src/main.js      game loop, input, camera, rules
 src/models.js    GLB loading, clean-up, normalisation, collider generation
-src/gallery.js   "Made with Vi3W" turntable
+src/gallery.js   model gallery turntable
 src/audio.js     synthesised SFX
 public/models/   optimised GLBs, manifest, sketches and generated images
 raw/             untouched Vi3W exports
