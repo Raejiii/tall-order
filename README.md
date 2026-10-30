@@ -36,8 +36,7 @@ Stacking only works if the *shape* of each object matters, so I picked three obj
 
 ## Vi3W workflow
 
-Each model went through Vi3W's three-step pipeline. The in-game **Model gallery** screen shows all three
-stages side by side for every model, along with its triangle count and collider breakdown.
+Each model went through Vi3W's three-step pipeline.
 
 1. **Sketch**: a hand-drawn line sketch on the Vi3W canvas (`public/models/sketches/*-sketch.png`).
 2. **Image Gen** (Nano Banana): the sketch plus a short prompt (the prompts are in `public/models/manifest.json`).
@@ -58,8 +57,7 @@ The free plan includes 100 XP. An image costs 10 XP and a Trellis model 20 XP, s
 
 The last step is what makes the game work. A single convex hull would wrap the cactus arms or the anvil's waist
 in an invisible blob. Clustering the mesh's own vertices and building one hull per cluster keeps the
-concave shape, so pieces snag, rock and balance the way they look. Press **H** in game, or open the gallery
-and choose *Show colliders*, to see them.
+concave shape, so pieces snag, rock and balance the way they look. Press **H** in game to see them.
 
 ## Tech
 
@@ -70,9 +68,8 @@ and choose *Show colliders*, to see them.
 ```
 src/main.js      game loop, input, camera, rules
 src/models.js    GLB loading, clean-up, normalisation, collider generation
-src/gallery.js   model gallery turntable
 src/audio.js     synthesised SFX
-public/models/   optimised GLBs, manifest, sketches and generated images
+public/models/   optimised GLBs, manifest, and the source sketches and images
 raw/             untouched Vi3W exports
 ```
 

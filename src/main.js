@@ -4,7 +4,6 @@ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.j
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { loadPieces } from './models.js';
 import * as sfx from './audio.js';
-import { createGallery } from './gallery.js';
 
 // ---------- Tuning ----------
 const PEDESTAL_TOP = 1.0;
@@ -186,8 +185,6 @@ let gustTimer = 12;
 let gustActive = 0;
 let gustDir = new THREE.Vector3();
 let titleSpin = 0;
-
-const gallery = createGallery({ renderer, envMap, getPieces: () => pieces, onClose: () => setState('title') });
 
 function drawFromBag() {
   if (!bag.length) {
@@ -419,8 +416,6 @@ function setState(s) {
   $('title').classList.toggle('show', s === 'title');
   $('over').classList.toggle('show', s === 'over');
   $('hud').classList.toggle('hidden', !(s === 'aiming' || s === 'settling'));
-  $('gallery').classList.toggle('hidden', s !== 'gallery');
-  if (s === 'gallery') gallery.open();
   if (s === 'title') $('best-title').textContent = `${best.toFixed(2)} m`;
 }
 
@@ -463,7 +458,6 @@ $('btn-menu').onclick = () => {
   resetGame();
   setState('title');
 };
-$('btn-gallery').onclick = () => setState('gallery');
 $('btn-share').onclick = async () => {
   const text = `I stacked ${maxHeight.toFixed(2)} m of rubber ducks, anvils and cacti in Tall Order 🦆⚒️🌵`;
   try {
@@ -560,12 +554,6 @@ function frame(now) {
   const dt = Math.min(0.05, (now - last) / 1000);
   last = now;
   elapsed += dt;
-
-  if (state === 'gallery') {
-    gallery.update(dt);
-    requestAnimationFrame(frame);
-    return;
-  }
 
   if (world && state !== 'loading') {
     if (slowmoTimer > 0) {
@@ -726,7 +714,6 @@ function resize() {
   renderer.setSize(innerWidth, innerHeight, false);
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
-  gallery.resize();
 }
 addEventListener('resize', resize);
 
