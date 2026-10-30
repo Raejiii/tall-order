@@ -6,6 +6,15 @@ import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 const BASE = import.meta.env.BASE_URL;
 const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 
+// Embedded models (data: URIs) are decoded here rather than fetched, since
+// some sandboxed hosts block fetch() of data: URLs.
+function loadGltf(file) {
+  if (!file.startsWith('data:')) return loader.loadAsync(`${BASE}models/${file}`);
+  const bin = atob(file.slice(file.indexOf(',') + 1));
+  const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+  return loader.parseAsync(bytes.buffer, '');
+}
+
 const MAX_HULL_POINTS = 2400;
 const HULL_POINTS = 80; // per hull — keeps colliders cheap and readable when drawn
 
@@ -19,7 +28,7 @@ export async function loadPieces(onProgress) {
       let object = null;
       if (def.file) {
         try {
-          object = (await loader.loadAsync(`${BASE}models/${def.file}`)).scene;
+          object = (await loadGltf(def.file)).scene;
         } catch (err) {
           console.warn(`[tall-order] ${def.file} failed to load, using placeholder`, err);
         }
